@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "expo-router";
 import {
   View,
   Text,
@@ -6,13 +7,19 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
+import { useAuth } from "../../context/AuthProvider";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser } = useAuth();
 
   const handleLogin = () => {
-    // TODO: Handle login
+    // Call the login API and set the user.
+    setUser({
+      email,
+      password,
+    });
   };
 
   return (

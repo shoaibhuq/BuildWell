@@ -26,6 +26,8 @@ export default function App() {
             name="Home"
             component={HomeScreen} //Home Screen
             options={{
+              tabBarLabel: "Home",
+              title: "Home",
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons name="home" color={color} size={24} />
               ),
@@ -33,7 +35,7 @@ export default function App() {
           />
           <Tab.Screen
             name="Profile"
-            component={isLoggedIn ? ProfileScreen : Login} //Home Screen
+            component={isLoggedIn ? Login : ProfileScreen} //Home Screen
             options={{
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons
