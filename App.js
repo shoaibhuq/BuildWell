@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React, { StyleSheet } from "react-native";
 
 import HomeScreen from "./app/screens/Home";
-import ProfileScreen from "./app/screens/Login";
-import SearchScreen from "./app/screens/Profile";
 
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
@@ -24,37 +22,6 @@ export default function App() {
           options={{
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Search"
-          component={SearchScreen} // Search Screen
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="magnify" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Notification"
-          component={ProfileScreen} // Notification Screen
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="heart" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Profile"
-          component={ProfileScreen} // Profile Screen
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="account-circle"
-                color={color}
-                size={26}
-              />
             ),
           }}
         />
