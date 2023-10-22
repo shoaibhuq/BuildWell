@@ -1,13 +1,24 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Button, Pressable } from "react-native";
 
 const HomeScreen = () => {
+  const handleCheckinPress = () => {
+    //Navigate to the checkin screen
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>BuildWell</Text>
       <Text style={styles.subtitle}>
         Start building wells and changing lives today.
       </Text>
+      <Pressable
+        title="Start Check in"
+        onPress={handleCheckinPress}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Start Check in</Text>
+      </Pressable>
     </View>
   );
 };
@@ -28,6 +39,20 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     textAlign: "center",
+  },
+  button: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 32,
+    paddingHorizontal: 48,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: "blue",
+  },
+  buttonText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "white",
   },
 });
 

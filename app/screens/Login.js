@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import auth from '@react-native-firebase/auth';
+import auth from "@react-native-firebase/auth";
+
 import {
   View,
   Text,
@@ -7,32 +8,34 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
+import { useAuth } from "../../context/AuthProvider";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser } = useAuth();
 
   const handleLogin = () => {
     auth()
-  .signInWithEmailAndPassword('Email', 'Password')
-  .then(() => {
-    console.log('User signed in!');
-  })
-  .catch(error => {
-    if (error.code === 'auth/user-not-found') {
-      console.log('That email address does not have an associated user!');
-    }
+      .signInWithEmailAndPassword("Email", "Password")
+      .then(() => {
+        console.log("User signed in!");
+      })
+      .catch((error) => {
+        if (error.code === "auth/user-not-found") {
+          console.log("That email address does not have an associated user!");
+        }
 
-    if (error.code === 'auth/wrong-password') {
-      console.log('The password is incorrect!');
-    }
+        if (error.code === "auth/wrong-password") {
+          console.log("The password is incorrect!");
+        }
 
-    if (error.code === 'auth/invalid-email') {
-      console.log('That email address is invalid!');
-    }
+        if (error.code === "auth/invalid-email") {
+          console.log("That email address is invalid!");
+        }
 
-    console.error(error);
-  });
+        console.error(error);
+      });
   };
 
   return (
@@ -57,8 +60,8 @@ export default function Login() {
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <Text style={styles.signupQ}>Don't have an account?</Text>
-      <TouchableOpacity onPress={()=> Navigation.navigate("Signup")}>
-          <Text style={styles.signupText}>Sign up</Text>
+      <TouchableOpacity onPress={() => Navigation.navigate("Signup")}>
+        <Text style={styles.signupText}>Sign up</Text>
       </TouchableOpacity>
     </View>
   );
@@ -100,5 +103,5 @@ const styles = StyleSheet.create({
   },
   signupText: {
     color: "#007bff",
-  }
+  },
 });
