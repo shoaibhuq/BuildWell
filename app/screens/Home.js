@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to BuildWells!</Text>
+      <Text style={styles.title}>BuildWell</Text>
       <Text style={styles.subtitle}>
         Start building wells and changing lives today.
       </Text>
@@ -17,12 +17,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "blue", // Add this line to set the background color to blue
   },
   title: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: "bold",
     marginBottom: 16,
+    // attatch to top of screen
+    marginTop: 0,
   },
   subtitle: {
     fontSize: 18,
