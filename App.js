@@ -1,56 +1,71 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { Camera, CameraType } from "expo-camera";
-import { Button, Text, TouchableOpacity, View, StyleSheet } from "react-native";
+import React, { Component } from "react";
+
+import HomeScreen from "./app/screens/Home";
+import ProfileScreen from "./app/screens/Login";
+import SearchScreen from "./app/screens/Profile";
+
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
-  const [type, setType] = useState(CameraType.back);
-  const [permission, requestPermission] = useState(
-    Camera.useCameraPermissions()
-  );
-
   return (
-    <View style={styles.container}>
-      <Camera style={styles.camera} type={type}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setType(
-                type === CameraType.back ? CameraType.front : CameraType.back
-              );
-            }}
-          >
-            <Text style={styles.text}> Flip </Text>
-          </TouchableOpacity>
-        </View>
-      </Camera>
-    </View>
+    <NavigationContainer style={styles.container}>
+      <Tab.Navigator
+        labeled={false}
+        barStyle={{ backgroundColor: "black" }}
+        activeColor="white"
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen} //Home Screen
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Search"
+          component={SearchScreen} // Search Screen
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="magnify" color={color} size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Notification"
+          component={ProfileScreen} // Notification Screen
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="heart" color={color} size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={ProfileScreen} // Profile Screen
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="account-circle"
+                color={color}
+                size={26}
+              />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-  },
-  camera: {
-    flex: 1,
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: "row",
-    backgroundColor: "transparent",
-    margin: 64,
-  },
-  button: {
-    flex: 1,
-    alignSelf: "flex-end",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
+    backgroundColor: "black",
   },
 });
