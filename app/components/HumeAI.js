@@ -1,5 +1,4 @@
 const axios = require("axios");
-require("dotenv").config();
 
 const jobStart = async (imageBase) => {
   const jpegBase = imageBase;
@@ -20,7 +19,7 @@ const jobStart = async (imageBase) => {
       accept: "application/json",
       "content-type":
         "multipart/form-data; boundary=---011000010111000001101001",
-      "X-Hume-Api-Key": process.env.HUME_API_KEY,
+      "X-Hume-Api-Key": process.env['HUME_API_KEY'],
     },
     data: "[form]",
   };
@@ -45,7 +44,7 @@ const predictions = async (jobID) => {
     url: `https://api.hume.ai/v0/batch/${jobID}/id/predictions`,
     headers: {
       accept: "application/json; charset=utf-8",
-      "X-Hume-Api-Key": process.env.HUME_API_KEY,
+      "X-Hume-Api-Key": process.env['HUME_API_KEY'],
     },
   };
 

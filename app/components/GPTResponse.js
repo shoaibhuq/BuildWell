@@ -1,11 +1,9 @@
-const OpenAI = require("openai");
-require("dotenv").config();
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env['OPENAI_API_KEY'],
 });
 
-let messages = [{ role: "system", content: process.env.GPT_SYSTEM_MESSAGE }];
+let messages = [{ role: "system", content: process.env['GPT_SYSTEM_MESSAGE'] }];
 
 export const getFeedback = async (
   res1,
