@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 let messages = [{ role: "system", content: process.env.GPT_SYSTEM_MESSAGE }];
 
-getFeedback = async (
+export const getFeedback = async (
   res1,
   res2,
   res3,
@@ -72,6 +72,3 @@ getFeedback = async (
     return err.message;
   }
 };
-
-
-export {getFeedback};
