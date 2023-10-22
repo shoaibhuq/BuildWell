@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import auth from '@react-native-firebase/auth';
 import {
   View,
   Text,
@@ -12,7 +13,26 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // TODO: Handle login
+    auth()
+  .signInWithEmailAndPassword('Email', 'Password')
+  .then(() => {
+    console.log('User signed in!');
+  })
+  .catch(error => {
+    if (error.code === 'auth/user-not-found') {
+      console.log('That email address does not have an associated user!');
+    }
+
+    if (error.code === 'auth/wrong-password') {
+      console.log('The password is incorrect!');
+    }
+
+    if (error.code === 'auth/invalid-email') {
+      console.log('That email address is invalid!');
+    }
+
+    console.error(error);
+  });
   };
 
   return (
@@ -35,6 +55,10 @@ export default function Login() {
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <Text style={styles.signupQ}>Don't have an account?</Text>
+      <TouchableOpacity onPress={()=> Navigation.navigate("Signup")}>
+          <Text style={styles.signupText}>Sign up</Text>
       </TouchableOpacity>
     </View>
   );
@@ -71,4 +95,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  signupQ: {
+    marginTop: 10,
+  },
+  signupText: {
+    color: "#007bff",
+  }
 });

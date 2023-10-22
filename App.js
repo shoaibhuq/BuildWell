@@ -8,6 +8,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import { NavigationContainer } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Login from "./app/screens/Login";
+import Signup from "./app/screens/Signup";
 
 const Tab = createMaterialBottomTabNavigator();
 
