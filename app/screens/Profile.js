@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   profileInfo: {
     flexDirection: "row",
     marginBottom: 10,
+    alignContent: "center",
   },
   label: {
     fontWeight: "bold",
