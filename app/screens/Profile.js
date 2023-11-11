@@ -39,8 +39,13 @@ const styles = StyleSheet.create({
   },
   profileInfo: {
     flexDirection: "row",
+<<<<<<< HEAD
     marginBottom: 40,
     marginTop: 20,
+=======
+    marginBottom: 10,
+    alignContent: "center",
+>>>>>>> 3f54651b73067ee83f98a90651ea4b7a42561f30
   },
   label: {
     fontWeight: "bold",
