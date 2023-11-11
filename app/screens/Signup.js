@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import auth from '@react-native-firebase/auth';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import '../../firebase.js'; 
 import {
   View,
   Text,
@@ -8,7 +9,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-export default function Signup() {
+export default function Signup({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -16,10 +17,11 @@ export default function Signup() {
   const [lastName, setLastName] = useState("");
 
   const handleSignup = () => {
-    auth()
-  .createUserWithEmailAndPassword('Email', 'Password')
+    const auth = getAuth();
+   createUserWithEmailAndPassword(auth, email, password)
   .then(() => {
     console.log('User account created & signed in!');
+    navigation.navigate("Login");
   })
   .catch(error => {
     if (error.code === 'auth/email-already-in-use') {
@@ -75,7 +77,7 @@ export default function Signup() {
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
       <Text style={styles.signupQ}>Already have an account?</Text>
-      <TouchableOpacity onPress={() => Navigation.navigate("Login")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <Text style={styles.signupText}>Login</Text>
       </TouchableOpacity>
     </View>

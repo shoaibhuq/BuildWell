@@ -1,10 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 const Profile = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Profile Screen</Text>
+      <Image source={require('../../images/NPC1.webp')} style={styles.imageStyle} />
+
       <View style={styles.profileInfo}>
         <Text style={styles.label}>Name:</Text>
         <Text style={styles.value}>John Doe</Text>
@@ -30,19 +32,27 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 100,
+  },
+  imageStyle: {
+    marginBottom: 80,
   },
   profileInfo: {
     flexDirection: "row",
-    marginBottom: 10,
+    marginBottom: 40,
+    marginTop: 20,
   },
   label: {
     fontWeight: "bold",
     marginRight: 10,
+    marginLeft: 30,
+    fontSize: 16,
   },
   value: {
     flex: 1,
+    fontSize: 16,
   },
 });
+
 
 export default Profile;
