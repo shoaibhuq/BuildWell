@@ -65,13 +65,9 @@ export default function Login({ navigation, setIsLoggedIn }) {
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <Text style={styles.signupQ}>Don't have an account?</Text>
-<<<<<<< HEAD
+
       <TouchableOpacity onPress={()=> navigation.navigate("Signup")}>
           <Text style={styles.signupText}>Sign up</Text>
-=======
-      <TouchableOpacity onPress={() => Navigation.navigate("Signup")}>
-        <Text style={styles.signupText}>Sign up</Text>
->>>>>>> 3f54651b73067ee83f98a90651ea4b7a42561f30
       </TouchableOpacity>
     </View>
   );
