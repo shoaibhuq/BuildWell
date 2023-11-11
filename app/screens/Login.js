@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import '../../firebase.js'; 
-=======
-import auth from "@react-native-firebase/auth";
->>>>>>> 3f54651b73067ee83f98a90651ea4b7a42561f30
-
 import {
   View,
   Text,
@@ -21,7 +16,6 @@ export default function Login({ navigation, setIsLoggedIn }) {
   const { setUser } = useAuth();
 
   const handleLogin = () => {
-<<<<<<< HEAD
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
      .then(() => {
@@ -47,28 +41,6 @@ export default function Login({ navigation, setIsLoggedIn }) {
   
       console.error(error);
     });
-=======
-    auth()
-      .signInWithEmailAndPassword("Email", "Password")
-      .then(() => {
-        console.log("User signed in!");
-      })
-      .catch((error) => {
-        if (error.code === "auth/user-not-found") {
-          console.log("That email address does not have an associated user!");
-        }
-
-        if (error.code === "auth/wrong-password") {
-          console.log("The password is incorrect!");
-        }
-
-        if (error.code === "auth/invalid-email") {
-          console.log("That email address is invalid!");
-        }
-
-        console.error(error);
-      });
->>>>>>> 3f54651b73067ee83f98a90651ea4b7a42561f30
   };
   
   return (

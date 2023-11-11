@@ -31,40 +31,7 @@ export default function App() {
   if (!isLoggedIn) {
     return (
       <NavigationContainer style={styles.container}>
-<<<<<<< HEAD
         <AuthStackNavigator />
-=======
-        <Tab.Navigator
-          labeled={false}
-          barStyle={{ backgroundColor: "black" }}
-          activeColor="white"
-        >
-          <Tab.Screen
-            name="Home"
-            component={HomeScreen} //Home Screen
-            options={{
-              tabBarLabel: "Home",
-              title: "Home",
-              tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="home" color={color} size={24} />
-              ),
-            }}
-          />
-          <Tab.Screen
-            name="Profile"
-            component={isLoggedIn ? Login : ProfileScreen} //Home Screen
-            options={{
-              tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons
-                  name="account"
-                  color={color}
-                  size={24}
-                />
-              ),
-            }}
-          />
-        </Tab.Navigator>
->>>>>>> 3f54651b73067ee83f98a90651ea4b7a42561f30
       </NavigationContainer>
     );
   }
